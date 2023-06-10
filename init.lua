@@ -200,7 +200,7 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
--- Set thick cursor normal and thick blinking cursor in insert mode
+-- Set thick cursor in normal and thick blinking cursor in insert mode
 vim.opt.guicursor = "n-c-v:block,i-ci-ve:block-blinkwait0-blinkon200-blinkoff150"
 
 -- Turn on line numbers and relative numbers
@@ -272,6 +272,8 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+vim.keymap.set('n', '<leader>X', '<cmd>!chmod +x %<CR>', { silent = true })
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -434,10 +436,10 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  rust_analyzer = {},
+  tsserver = {},
 
   lua_ls = {
     Lua = {
